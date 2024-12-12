@@ -12,7 +12,8 @@ def init_db():
     conn.execute("""
     CREATE TABLE IF NOT EXISTS users (
         user_id INTEGER PRIMARY KEY,
-        selected_greetings TEXT
+        selected_greetings TEXT,
+        last_choice_date TEXT
     )
     """)
     conn.commit()
@@ -29,17 +30,22 @@ def get_user(user_id):
 def add_user(user_id):
     conn = get_db_connection()
     conn.execute(
-        "INSERT INTO users (user_id, selected_greetings) VALUES (?, ?)", (user_id, "")
+        "INSERT INTO users (user_id, selected_greetings, last_choice_date) VALUES (?, ?, ?)",
+        (user_id, "", ""),
     )
     conn.commit()
     conn.close()
 
 
-def update_user(user_id, selected_greetings):
+def update_user(user_id, selected_greetings, last_choice_date):
     conn = get_db_connection()
     conn.execute(
-        "UPDATE users SET selected_greetings = ? WHERE user_id = ?",
-        (selected_greetings, user_id),
+        """
+        UPDATE users 
+        SET selected_greetings = ?, last_choice_date = ?
+        WHERE user_id = ?
+        """,
+        (selected_greetings, last_choice_date, user_id),
     )
     conn.commit()
     conn.close()
