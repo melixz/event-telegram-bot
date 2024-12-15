@@ -30,8 +30,8 @@ REMINDER_HOUR = int(os.getenv("REMINDER_HOUR", 10))
 REMINDER_MINUTE = int(os.getenv("REMINDER_MINUTE", 0))
 
 # Даты проведения при необходимости корректируйте
-EVENT_START = datetime(2024, 12, 11)
-EVENT_END = datetime(2024, 12, 15)
+EVENT_START = datetime(2024, 12, 16)
+EVENT_END = datetime(2024, 12, 20)
 TOTAL_DAYS = 5
 
 IMAGE_URL = "NY_3.png"  # Укажите корректный путь к вашему изображению
