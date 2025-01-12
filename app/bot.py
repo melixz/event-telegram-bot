@@ -14,7 +14,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 from database import get_user, add_user, update_user, get_all_user_ids, init_db
-from messages import (
+from utils.messages import (
     START_MESSAGE,
     GREETING_OPTIONS,
     GREETING_MESSAGES,
